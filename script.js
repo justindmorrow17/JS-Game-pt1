@@ -9,22 +9,24 @@ if (start === "yes") {
     // console.log(`${playerName}`) Test 
     console.log(`Let's get ready to rumble! ${playerName}'s starting health is ${playerhp} and Grant's starting health is ${granthp}`);
 
-    while (playerhp > 0) {
-        console.log(`${playerName}'s Health: ${playerhp -= Math.floor((Math.random()* 2) + 0)}`);
-        console.log(`Grant's Health: ${granthp -= Math.floor((Math.random() * 2) + 1)}`);
-    }
-        if ( playerhp <= 0) {
-            console.log(`Game Over - Grant Won!`);
+    while (granthp > 0) {
+        console.log(`${playerName}'s Health: ${playerhp -= Math.floor((Math.random()* 12) + 1)}`);
+        console.log(`Grant's Health: ${granthp -= Math.floor((Math.random()* 2) + 1)}`);
+
+        if (wins === 2 && granthp <= 0) {
+            console.log(`We have a new Champion, ${playerName} wins!`);
             break;
-        // } else if (playerhp > 0) {
-                        
-        // } else if (granthp <= 0) {
-        //     console.log(`${playerName} wins!`);
-        //     wins++;
-        //     granthp = 10;
-        // } else if (wins === 3) {
-        //     console.log(`We have a new Champion, ${playerName} wins!`)
-        // }
+
+        } else if (playerhp <= 0) {
+            console.log(`You have been found wanting. Game Over - Grant Won!`);
+            break;
+
+        } else if (granthp <= 0) {
+            wins++;
+            granthp = 10;
+            console.log(`${playerName} wins!, you now have ${wins} wins.`);
+        }
+    }
 
 } else {
     console.log("Try again tomorrow?");
@@ -56,4 +58,3 @@ if (start === "yes") {
 //         break;
 //     }
 // }
-
